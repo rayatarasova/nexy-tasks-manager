@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 // import Tasks from '../components/Tasks';
-import Users from '../components/Users';
+import UsersContainer from './js/containers/UsersContainer';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
         <div>
           <Switch>
             {/* <Route path='/tasks' component={Tasks} /> */}
-            <Route path='/users' component={Users} />
+            <Route path='/users' component={UsersContainer} />
             <Redirect from="/" to="users" />
           </Switch>
         </div>

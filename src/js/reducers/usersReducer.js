@@ -1,17 +1,14 @@
 import { FETCH_USERS_SUCCESS } from "../constants/actionTypes";
 
 const initialState = {
-  articles: [],
-  remoteArticles: []
+  users: [],
 };
 
-function usersReducer(state = initialState, action) {
-  if (action.type === FETCH_USERS_SUCCESS) {
-    return Object.assign({}, state, {
-      remoteArticles: state.remoteArticles.concat(action.payload)
-    });
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case FETCH_USERS_SUCCESS:
+      return action.payload;
+    default:
+      return state;
   }
-  return state;
 }
-
-export default usersReducer;

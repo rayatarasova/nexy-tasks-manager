@@ -1,13 +1,13 @@
-import { FETCH_USERS, FETCH_USERS_SUCCESS, FETCH_USERS_FAIL } from "../constants/actionTypes";
+import { FETCH_USERS, FETCH_USERS_SUCCESS, POST_USERS } from "../constants/actionTypes";
 
-export function fetchUsers() {
+export function fetchUsersAction() {
   return { type: FETCH_USERS };
 }
 
-export function fetchUsersSuccess(payload) {
+export function fetchUsersSuccessAction(payload) {
   return { type: FETCH_USERS_SUCCESS, payload };
 }
 
-export function fetchUsersError() {
-  return { type: FETCH_USERS_FAIL };
+export function postsUsersAction(payload) {
+  return { type: POST_USERS, payload };
 }
