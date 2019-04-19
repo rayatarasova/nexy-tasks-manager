@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsersAction, postsUsersAction } from "../actions/usersActions";
+import { postsUsersAction } from "../actions/usersActions";
 
 import UsersAddButton from '../components/UsersAddButton';
 import UsersNewInput from '../components/UsersNewInput';
-import UsersList from '../components/UsersList';
 
-class UsersContainer extends Component {
+class UsersCreateContainer extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -24,35 +23,21 @@ class UsersContainer extends Component {
     }
   
     handleSubmit() {
-      // this.props.dispatch(postsUsers({ user_name: this.state.newTodoText }));
-      this.props.postsUsersAction({ user_name: this.state.newUserName })
-    }
-  
-    componentDidMount() {
-        this.props.fetchUsersAction();
+        this.props.postsUsersAction({ user_name: this.state.newUserName })
     }
 
     render() {
-      const { users } = this.props;
-
       return (
-        <div className="app">
-          <h1>Users</h1>
+        <div>
+          <h1>Create user:</h1>
           <UsersNewInput onTextChange={this.handleUserNameTextChange}/>
           <UsersAddButton onClick={this.handleSubmit}/>
-          <UsersList users={users}/>
         </div>
       );
     }
 }
   
-const mapStateToProps = (state) => {
-    return {
-        users: state.users,
-    }
-}
-  
 export default connect(
-    mapStateToProps,
-    { fetchUsersAction, postsUsersAction }
-)(UsersContainer);
+    null,
+    { postsUsersAction }
+)(UsersCreateContainer);
