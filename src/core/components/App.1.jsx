@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 // import Tasks from '../components/Tasks';
-import UsersContainer from './js/containers/UsersContainer';
+import UsersContainer from '../js/containers/UsersContainer';
 
 class App extends Component {
   render() {

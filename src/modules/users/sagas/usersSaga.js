@@ -1,4 +1,4 @@
-import { FETCH_USERS, POST_USERS } from '../constants/actionTypes';
+import { FETCH_USERS, POST_USERS } from '../constants/usersConstants';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { fetchUsersRequest, postUsersRequest } from '../api/usersApi';
 import { fetchUsersAction, fetchUsersSuccessAction } from '../actions/usersActions';

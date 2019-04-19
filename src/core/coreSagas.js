@@ -1,5 +1,5 @@
 import { fork } from 'redux-saga/effects';
-import { watchFetchUsers, watchPostUsers } from './usersSaga';
+import { watchFetchUsers, watchPostUsers } from '../modules/users/sagas/usersSaga';
 
 export default function* rootSaga() {
   yield fork(watchFetchUsers);

@@ -35,8 +35,6 @@ class UsersContainer extends Component {
     render() {
       const { users } = this.props;
 
-console.log(users);
-
       return (
         <div className="app">
           <h1>Users</h1>

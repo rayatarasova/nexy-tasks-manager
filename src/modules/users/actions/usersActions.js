@@ -1,4 +1,4 @@
-import { FETCH_USERS, FETCH_USERS_SUCCESS, POST_USERS } from "../constants/actionTypes";
+import { FETCH_USERS, FETCH_USERS_SUCCESS, POST_USERS } from "../constants/usersConstants";
 
 export function fetchUsersAction() {
   return { type: FETCH_USERS };
