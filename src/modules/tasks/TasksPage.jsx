@@ -3,7 +3,8 @@ import TasksCreateContainer from './containers/TasksCreateContainer';
 import TasksListContainer from './containers/TasksListContainer';
 
 const TasksPage = () => (
-    <Fragment> 
+    <Fragment>
+        <h1 class="h2">Tasks</h1>
         <TasksCreateContainer/>
         <TasksListContainer />
     </Fragment>

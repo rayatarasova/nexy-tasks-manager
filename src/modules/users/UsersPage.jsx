@@ -3,7 +3,8 @@ import UsersCreateContainer from './containers/UsersCreateContainer';
 import UsersListContainer from './containers/UsersListContainer';
 
 const UsersPage = () => (
-    <Fragment> 
+    <Fragment>
+        <h1 class="h2">Users</h1>
         <UsersCreateContainer/>
         <UsersListContainer />
     </Fragment>
