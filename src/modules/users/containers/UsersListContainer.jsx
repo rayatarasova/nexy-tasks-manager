@@ -13,10 +13,7 @@ class UsersListContainer extends Component {
       const { users } = this.props;
 
       return (
-        <div>
-          <h1>Users list:</h1>
-          <UsersList users={users}/>
-        </div>
+        <UsersList users={users}/>
       );
     }
 }

@@ -1,49 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { postsTasksAction } from "../actions/tasksActions";
+import { fetchUsersAction } from "../../users/actions/usersActions";
 
-import TasksAddButton from '../components/TasksAddButton';
-import TasksNewInput from '../components/TasksNewInput';
+import TasksCreateForm from '../components/TasksCreateForm';
 
 class TasksCreateContainer extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        newTaskName: ''
-      }
-      
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleTaskNameTextChange = this.handleTaskNameTextChange.bind(this);
+  componentDidMount() {
+    if (!this.props.users || !this.props.users.length) {
+      this.props.fetchUsersAction();
     }
-  
-    handleTaskNameTextChange(text) {
-      this.setState({
-        newTaskName: text
-      })
-    }
-  
-    handleSubmit() {
-        this.props.postsTasksAction({ 
-          task_name: this.state.newTaskName,
-          description: 'This is Task 5',
-          assignee: 'test',
-          start_date: '2019-05-13',
-          end_date: '2019-05-18'
-        })
-    }
+  }
 
-    render() {
-      return (
-        <div>
-          <h1>Create task:</h1>
-          <TasksNewInput onTextChange={this.handleTaskNameTextChange}/>
-          <TasksAddButton onClick={this.handleSubmit}/>
-        </div>
-      );
-    }
+  render() {
+    const { postsTasksAction, users } = this.props;
+
+    return (
+      <TasksCreateForm onSubmitForm={postsTasksAction} users={users}/>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+  }
 }
   
 export default connect(
-    null,
-    { postsTasksAction }
+    mapStateToProps,
+    { postsTasksAction, fetchUsersAction }
 )(TasksCreateContainer);

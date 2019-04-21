@@ -6,17 +6,14 @@ import TasksList from '../components/TasksList';
 
 class TasksListContainer extends Component {  
     componentDidMount() {
-        this.props.fetchTasksAction();
+      this.props.fetchTasksAction();
     }
 
     render() {
       const { tasks } = this.props;
 
       return (
-        <div>
-          <h1>Tasks list:</h1>
-          <TasksList tasks={tasks}/>
-        </div>
+        <TasksList tasks={tasks}/>
       );
     }
 }
