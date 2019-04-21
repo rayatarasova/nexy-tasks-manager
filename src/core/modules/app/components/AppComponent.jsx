@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AppRouting from '../../../routing/AppRouting';
 
 import Menu from '../../../components/Menu';
+import NotificationContainer from '../../../../modules/notification/containers/NotificationContainer';
 
 class AppComponent extends Component {
   render() {
@@ -23,6 +24,7 @@ class AppComponent extends Component {
 
               <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="chartjs-size-monitor">
+                  <NotificationContainer />
                   <AppRouting />
                 </div>
               </main>

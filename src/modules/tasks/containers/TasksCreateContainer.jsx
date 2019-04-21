@@ -26,7 +26,7 @@ class TasksCreateContainer extends Component {
         this.props.postsTasksAction({ 
           task_name: this.state.newTaskName,
           description: 'This is Task 5',
-          assignee: '44',
+          assignee: 'test',
           start_date: '2019-05-13',
           end_date: '2019-05-18'
         })

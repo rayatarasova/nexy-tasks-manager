@@ -4,7 +4,7 @@ import UsersListContainer from './containers/UsersListContainer';
 
 const UsersPage = () => (
     <Fragment>
-        <h1 class="h2">Users</h1>
+        <h1 className="h2">Users</h1>
         <UsersCreateContainer/>
         <UsersListContainer />
     </Fragment>
