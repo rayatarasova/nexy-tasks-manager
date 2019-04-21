@@ -116,6 +116,8 @@ class TasksCreateForm extends Component {
                 name="assignee"
                 className="custom-select d-block w-100"
               > 
+                <option>Not selected</option>
+                
                 {users.map(user => (
                   <option key={user.user_id}>
                     {user.user_name}
