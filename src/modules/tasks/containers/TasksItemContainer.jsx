@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TasksItem from '../components/TasksItem';
-import { deleteTasksAction } from "../actions/tasksActions";
-
+import { putTasksAction, deleteTasksAction } from "../actions/tasksActions";
 
 class TasksItemContainer extends Component {
   constructor(props) {
-    super(props)
-    this.deleteTask = this.deleteTask.bind(this);
+    super(props);
+
+    this.onUpdateTask = this.onUpdateTask.bind(this);
+    this.onDeleteTask = this.onDeleteTask.bind(this);
   }
 
-  deleteTask(id) {
+  onUpdateTask(task) {
+    this.props.putTasksAction(task);
+  }
+
+  onDeleteTask(id) {
     this.props.deleteTasksAction(id);
   }
 
@@ -18,12 +23,16 @@ class TasksItemContainer extends Component {
     const { task } = this.props;
 
     return (
-      <TasksItem deleteTask={this.deleteTask} task={task}/>
+      <TasksItem
+        task={task}
+        onUpdateTask={this.onUpdateTask}
+        onDeleteTask={this.onDeleteTask} 
+      />
     )
   }
 }
 
 export default connect(
   null,
-  { deleteTasksAction }
+  { putTasksAction, deleteTasksAction }
 )(TasksItemContainer);

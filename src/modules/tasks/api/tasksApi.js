@@ -16,6 +16,14 @@ export const postTasksRequest = (newTasks) => {
   });
 }
 
+export const putTasksRequest = (task) => {
+  return axios.request({
+    method: 'put',
+    url: `${ROOT_URL}/tasks/${task.task_id}`,
+    data: task
+  });
+}
+
 export const deleteTasksRequest = (id) => {
   return axios.request({
     method: 'delete',

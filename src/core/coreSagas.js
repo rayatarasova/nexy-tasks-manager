@@ -1,6 +1,6 @@
 import { fork } from 'redux-saga/effects';
 import { watchFetchUsers, watchPostUsers } from '../modules/users/sagas/usersSaga';
-import { watchFetchTasks, watchPostTasks, watchDeleteTasks } from '../modules/tasks/sagas/tasksSaga';
+import { watchFetchTasks, watchPostTasks, watchPutTasks, watchDeleteTasks } from '../modules/tasks/sagas/tasksSaga';
 import { watchShowNotification } from '../modules/notification/sagas/notificationSaga';
 
 export default function* rootSaga() {
@@ -8,6 +8,7 @@ export default function* rootSaga() {
   yield fork(watchPostUsers);
   yield fork(watchFetchTasks);
   yield fork(watchPostTasks);
+  yield fork(watchPutTasks);
   yield fork(watchDeleteTasks);
   yield fork(watchShowNotification);
 }
