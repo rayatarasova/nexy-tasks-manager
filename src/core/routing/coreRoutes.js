@@ -15,11 +15,9 @@ export const CORE_ROUTES = [
   {
     path: USERS_PATH,
     component: UsersPage,
-    exact: true,
   },
   {
     path: TASKS_PATH,
     component: TasksPage,
-    exact: true,
   },
 ];

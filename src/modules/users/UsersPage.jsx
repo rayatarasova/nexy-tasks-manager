@@ -1,12 +1,8 @@
-import React, { Fragment } from 'react';
-import UsersCreateContainer from './containers/UsersCreateContainer';
-import UsersListContainer from './containers/UsersListContainer';
+import React from 'react';
+import UsersRouting from './routing/UsersRouting';
 
 const UsersPage = () => (
-    <Fragment>
-        <UsersCreateContainer/>
-        <UsersListContainer />
-    </Fragment>
+    <UsersRouting />
 );
 
 export default UsersPage;

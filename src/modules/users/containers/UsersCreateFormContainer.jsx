@@ -4,7 +4,7 @@ import { postsUsersAction } from "../actions/usersActions";
 
 import UsersCreateForm from '../components/UsersCreateForm';
 
-class UsersCreateContainer extends Component {
+class UsersCreateFormContainer extends Component {
     render() {
       const { postsUsersAction } = this.props;
 
@@ -17,4 +17,4 @@ class UsersCreateContainer extends Component {
 export default connect(
     null,
     { postsUsersAction }
-)(UsersCreateContainer);
+)(UsersCreateFormContainer);

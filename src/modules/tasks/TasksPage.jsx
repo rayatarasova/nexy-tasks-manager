@@ -1,12 +1,9 @@
-import React, { Fragment } from 'react';
-import TasksCreateFormContainer from './containers/TasksCreateFormContainer';
-import TasksListContainer from './containers/TasksListContainer';
+import React from 'react';
+
+import TasksRouting from './routing/TasksRouting';
 
 const TasksPage = () => (
-    <Fragment>
-        <TasksCreateFormContainer/>
-        <TasksListContainer />
-    </Fragment>
+    <TasksRouting />
 );
 
 export default TasksPage;
