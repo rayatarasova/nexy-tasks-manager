@@ -9,7 +9,7 @@ import TasksPage from '../../modules/tasks/TasksPage';
 export const CORE_ROUTES = [
   {
     path: CORE_PATH,
-    component: () => <Redirect to={{ pathname: USERS_PATH }} />,
+    component: () => <Redirect to={{ pathname: TASKS_PATH }} />,
     exact: true,
   },
   {

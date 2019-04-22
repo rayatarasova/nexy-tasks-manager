@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-const statusList = ['Assigned', 'Created', 'In progress'];
+const statusList = ['Assigned', 'Expired', 'In progress', 'Waiting', 'Cancelled', 'Closed'];
 
 class TasksCreateForm extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class TasksCreateForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const { task_id, task_name, task_description, task_start_date, task_end_date, task_status } = this.state;
+    const { task_id, task_name, task_description, user_name, task_start_date, task_end_date, task_status } = this.state;
     if (task_name && task_description && task_start_date && task_end_date && task_status) {
       
       const payload = {
@@ -25,9 +25,10 @@ class TasksCreateForm extends Component {
         task: {
           task_name,
           description: task_description,
+          assignee: user_name,
           start_date: task_start_date,
           end_date: task_end_date,
-          //task_status: task_status
+          status: task_status
         }
       };
       
