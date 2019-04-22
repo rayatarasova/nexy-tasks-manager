@@ -16,10 +16,10 @@ export const postTasksRequest = (newTasks) => {
   });
 }
 
-export const putTasksRequest = (task) => {
+export const putTasksRequest = ({ id, task }) => {
   return axios.request({
     method: 'put',
-    url: `${ROOT_URL}/tasks/${task.task_id}`,
+    url: `${ROOT_URL}/tasks/${id}`,
     data: task
   });
 }

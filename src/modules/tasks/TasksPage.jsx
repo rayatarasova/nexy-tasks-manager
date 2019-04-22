@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import TasksCreateContainer from './containers/TasksCreateContainer';
+import TasksCreateFormContainer from './containers/TasksCreateFormContainer';
 import TasksListContainer from './containers/TasksListContainer';
 
 const TasksPage = () => (
     <Fragment>
-        <TasksCreateContainer/>
+        <TasksCreateFormContainer/>
         <TasksListContainer />
     </Fragment>
 );

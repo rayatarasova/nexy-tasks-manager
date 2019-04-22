@@ -5,7 +5,7 @@ import { fetchUsersAction } from "../../users/actions/usersActions";
 
 import TasksCreateForm from '../components/TasksCreateForm';
 
-class TasksCreateContainer extends Component {
+class TasksCreateFormContainer extends Component {
   componentDidMount() {
     if (!this.props.users || !this.props.users.length) {
       this.props.fetchUsersAction();
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps,
     { postsTasksAction, fetchUsersAction }
-)(TasksCreateContainer);
+)(TasksCreateFormContainer);

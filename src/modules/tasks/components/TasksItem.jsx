@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import TasksEditForm from './TasksEditForm';
 
 class TasksItem extends Component {
   constructor(props) {
@@ -17,18 +18,10 @@ class TasksItem extends Component {
     this.setState({isEditing: !this.state.isEditing})
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(updatedTask) {
+    delete updatedTask['isEditing'];
 
-    const payload = { 
-      ...this.state,
-      task_status: 'In progress'
-    };
-    delete payload['isEditing'];
-    // delete payload['task_start_date'];
-    // delete payload['task_end_date'];
-
-    this.props.onUpdateTask(payload);
+    this.props.onUpdateTask(updatedTask);
 
     this.setState({ 
       isEditing: false
@@ -48,49 +41,43 @@ class TasksItem extends Component {
     } = task;
     const { isEditing } = this.state;
 
-    if (isEditing) {
-      return (
-        <button
-          onClick={this.handleSubmit}
-          type="button"
-          className="btn btn-light"
-        >
-          Save
-        </button>
-      )
-    }
-
     return (
       <Fragment>
-        <div className="card">
+        <div className="card" style={{ marginBottom: '2rem' }}>
           <div className="card-header">
-            {task_status}
+           {user_name}
           </div>
 
-          <div className="card-body">
-            <h5 className="card-title">{task_name}</h5>
-            <p className="card-text">{task_description}</p>
-            <p className="card-text">{user_name}</p>
-            <p className="card-text">{`${task_start_date} - ${task_end_date}`}</p>
-            
-            <div className="btn-group" role="group" aria-label="Basic example">
-              <button
-                onClick={this.toggleEdit}
-                type="button"
-                className="btn btn-light"
-              >
-                Edit
-              </button>
+          {isEditing && (
+            <TasksEditForm task={task} onSubmitForm={this.handleSubmit} />
+          )}
+          
+          {!isEditing && (
+            <div className="card-body">
+              <h5 className="card-title">{task_name}</h5>
+              <p className="card-text">{task_description}</p>
+              <p className="card-text">{`${task_start_date} - ${task_end_date}`}</p>
+              <p className="card-text">{task_status}</p>
 
-              <button
-                onClick={() => onDeleteTask(task_id)}
-                className="btn btn-light"
-              >
-                Delete
-              </button>
+              <div className="btn-group" role="group" aria-label="Basic example">
+                <button
+                  onClick={this.toggleEdit}
+                  type="button"
+                  className="btn btn-light"
+                >
+                  Edit
+                </button>
+
+                <button
+                  onClick={() => onDeleteTask(task_id)}
+                  className="btn btn-light"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
+          )}
 
-          </div>
         </div>
       </Fragment>
     )
