@@ -1,5 +1,5 @@
 import axios from 'axios';
-const ROOT_URL = 'https://damp-eyrie-62274.herokuapp.com';
+import { ROOT_URL } from '../../../config.json';
 
 export const fetchTasksRequest = () => {
   return axios.request({
