@@ -1,3 +1,5 @@
+## Preconditions 
+Install nodeJS from https://nodejs.org/en/download/
 
 ## Available Scripts
 
